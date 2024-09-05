@@ -28,7 +28,7 @@ $(document).ready(function() {
 function renderHeroInfo(data) {
     if (data && data.image && data.image.url) {
         let heroCard = `
-            <div class="card" style="width: 100%;">
+            <div class="card" style="width: 70%;">
                 <img src="${data.image.url}" class="card-img-top" alt="${data.name}">
                 <div class="card-body">
                     <h5 class="card-title">${data.name}</h5>

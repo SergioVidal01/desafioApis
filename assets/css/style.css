@@ -1,0 +1,7 @@
+#heroInfo .card {
+    margin-bottom: 20px;
+}
+
+#heroChart {
+    height: 400px;  /* Ajusta la altura del gráfico */
+}
