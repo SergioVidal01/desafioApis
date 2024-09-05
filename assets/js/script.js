@@ -28,12 +28,23 @@ $(document).ready(function() {
 function renderHeroInfo(data) {
     if (data && data.image && data.image.url) {
         let heroCard = `
-            <div class="card" style="width: 70%;">
-                <img src="${data.image.url}" class="card-img-top" alt="${data.name}">
-                <div class="card-body">
-                    <h5 class="card-title">${data.name}</h5>
-                    <p class="card-text">Ocupación: ${data.work.occupation}</p>
-                    <p class="card-text">Primera aparición: ${data.biography['first-appearance']}</p>
+            <div class="card" style="width: 100%;">
+                <div class="row g-0 d-flex align-items">
+                    <!-- Imagen del héroe -->
+                    <div class="col-md-4">
+                        <img src="${data.image.url}" class="img-fluid rounded-start" alt="${data.name}">
+                    </div>
+                    <!-- Información del héroe -->
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">${data.name}</h5>
+                            <p class="card-text"><strong>Nombre Completo:</strong> ${data.biography['full-name'] || 'No disponible'}</p>
+                            <p class="card-text"><strong>Alias:</strong> ${data.biography.aliases.join(', ') || 'No disponible'}</p>
+                            <p class="card-text"><strong>Primera aparición:</strong> ${data.biography['first-appearance'] || 'No disponible'}</p>
+                            <p class="card-text"><strong>Ocupación:</strong> ${data.work.occupation || 'No disponible'}</p>
+                            <p class="card-text"><strong>Base de operaciones:</strong> ${data.work.base || 'No disponible'}</p> 
+                        </div>
+                    </div>
                 </div>
             </div>
         `;

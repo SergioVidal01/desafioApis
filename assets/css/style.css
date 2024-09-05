@@ -5,3 +5,9 @@
 #heroChart {
     height: 400px;  /* Ajusta la altura del gráfico */
 }
+
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
