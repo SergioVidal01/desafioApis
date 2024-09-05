@@ -2,6 +2,7 @@ $(document).ready(function() {
     $("#heroSearchForm").submit(function(event) {
         event.preventDefault();
         let heroId = $("#heroId").val().trim();
+        //aquí validamos el envío del formulario
 
         // Validar que solo se ingresen números
         if (!/^\d+$/.test(heroId)) {
@@ -9,7 +10,7 @@ $(document).ready(function() {
             return;
         }
 
-        // Hacer la solicitud AJAX a la API
+        // solicitud AJAX a la API
         $.ajax({
             url: `https://www.superheroapi.com/api.php/4905856019427443/${heroId}`,
             method: 'GET',
@@ -24,6 +25,7 @@ $(document).ready(function() {
         });
     });
 });
+// aquí hicimos la tarjeta con la imagen del heroe y las caracteristicas que se pedían en el desafío con una funcion.
 
 function renderHeroInfo(data) {
     if (data && data.image && data.image.url) {
@@ -53,7 +55,7 @@ function renderHeroInfo(data) {
         $("#heroInfo").html("<p>No se pudo cargar la información del héroe.</p>");
     }
 }
-
+// se crea una función para recopilar las estadisticas del heroe
 function renderHeroChart(data) {
     let chartData = [
         { y: data.powerstats.intelligence, label: "Inteligencia" },
@@ -63,7 +65,7 @@ function renderHeroChart(data) {
         { y: data.powerstats.power, label: "Poder" },
         { y: data.powerstats.combat, label: "Combate" }
     ];
-
+//se muestra el gráfico usando CanvasJS
     var chart = new CanvasJS.Chart("heroChart", {
         animationEnabled: true,
         title: {
